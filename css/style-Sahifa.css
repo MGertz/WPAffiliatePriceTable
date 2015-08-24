@@ -1,0 +1,44 @@
+.AP_Outer {
+    border: 2px solid #000;
+}
+.AP_Outer td {
+vertical-align: middle;
+}
+.AP_link {
+width: 130px;
+text-align: right;
+}
+
+
+.AP_button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 15px;
+    border: 1px solid #ae6300;
+    border-radius: 8px;
+    background: #ffa200;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffa200), to(#ae6300));
+    background: -moz-linear-gradient(top, #ffa200, #ae6300);
+    background: linear-gradient(to bottom, #ffa200, #ae6300);
+    text-shadow: #7c4700 1px 1px 1px;
+    font: normal normal 15px verdana;
+    color: #ffffff;
+    text-decoration: none;
+}
+.AP_button:hover,
+.AP_button:focus {
+    border: 1px solid #f88d00;
+    background: #ffc200;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffc200), to(#d17700));
+    background: -moz-linear-gradient(top, #ffc200, #d17700);
+    background: linear-gradient(to bottom, #ffc200, #d17700);
+    color: #ffffff;
+    text-decoration: none;
+}
+.AP_button:active {
+    background: #ae6300;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ae6300), to(#ae6300));
+    background: -moz-linear-gradient(top, #ae6300, #ae6300);
+    background: linear-gradient(to bottom, #ae6300, #ae6300);
+}

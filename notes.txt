@@ -1,0 +1,49 @@
+
+Placer denne tekst lige under overskriften på en siden for at vise en besked.
+
+<div class="updated notice below-h2"><p>hejsa</p></div>
+
+
+
+
+:: Affiliate ::
+ID
+Name
+PartnerID
+DeepLink
+
+
+
+:: Webshops ::
+ID
+ShopName
+SiteUrl
+AffiliateID -> Forringkey fra Affiliates
+ProgramID
+Shipping
+Currency
+CrawlFrom
+CrawlTo
+
+
+:: PriceTable ::
+ID
+Name
+
+
+:: PriceTable-Posts ::
+ID
+PostID
+TableID
+
+
+:: Prices ::
+ID
+WebshopID -> ForringKey fra Webshops
+TableID
+ProductUrl
+Price
+LastUpdated
+Added
+Active true/false Denne er ikke lagt ind i db endnu
+AutoUpdatePrice true/false denne er ikke lagt ind i db endnu
