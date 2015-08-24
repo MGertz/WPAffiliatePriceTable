@@ -1,11 +1,11 @@
 <?php
 function my_row_actions($id=0) {
 
-	$page = "?page=Affiliate-Plugin-Affiliate";
+	$page = "?page=APT-Affiliate";
 
 
 	$out = "<div class=\"row-actions\">
-	<a href=\"".$page."&action=Edit&ID=".$id."\">Edit</a> | 
+	<a href=\"".$page."&action=Edit&ID=".$id."\">Edit</a> |
 	<a href=\"".$page."&action=Delete&ID=".$id."\">Delete</a>
 	</div>";
 
@@ -16,12 +16,8 @@ global $wpdb;
 $prefix = $wpdb->prefix;
 ?>
 <div class="wrap">
-	<h2>Affiliate Netværk <a href="?page=Affiliate-Plugin-Affiliate&action=Add" class="add-new-h2">Tilf&oslash;j Ny</a></h2>
+	<h2>Affiliate Network <a href="?page=APT-Affiliate&action=Add" class="add-new-h2">Add</a></h2>
 
-	<div class="AP_Left">
-
-	<p>Liste over alle netværk</p>
-	
 	<table class="wp-list-table widefat fixed posts" cellspacing="0">
 		<thead>
 			<tr>
@@ -42,7 +38,7 @@ $prefix = $wpdb->prefix;
 		<?php
 			$sql = "SELECT * FROM `".$prefix."ap_affiliates` ORDER BY `name`;";
             $result = $wpdb->get_results($sql);
-                        
+
 			$alternate = true;
 			foreach( $result as $row ) {
 				if( $alternate == true ) {
@@ -61,9 +57,4 @@ $prefix = $wpdb->prefix;
 		</tbody>
 	</table>
 
-	</div>
-
-	<div class="AP_Right">
-		<? require_once"Sidebar.php"; ?>
-	</div>
 </div>

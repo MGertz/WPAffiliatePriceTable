@@ -2,7 +2,7 @@
 /*
 Plugin Name: Affiliate Price Table (APT)
 Plugin URI: http://Ringhus.dk/AffiliatePriceTable
-Description: With this plugin, you can create pricetables on your page, that list prices from webshops, and the plugin is able to update the prices automaticly
+Description: With this plugin, you can create pricetables on your page, that list prices from webshops, and the plugin is able to update the prices automaticly. If you disable this plugin, no data will be deleted. there was created a few tables in your database, where all content is saved.
 Author: Michael Ringhus Gertz
 Version: Beta
 Date 24-08-2015

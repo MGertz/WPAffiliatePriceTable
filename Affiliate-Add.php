@@ -1,7 +1,5 @@
 <div class="wrap">
-	<h2>Tilføj Affiliate Netværk</h2>
-
-	<p>Opret en ny tabel, som priserne kan bindes op på</p>
+	<h2>Add Affiliate Network</h2>
 
 	<div class="Left">
 		<form method="post">
@@ -11,7 +9,7 @@
 			<tbody>
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="Name">Navn <span class="description">(påkrævet)</span></label>
+						<label for="Name">Navn <span class="description">(required)</span></label>
 					</th>
 					<td>
 						<input name="Name" type="text" id="Name" value="" aria-required="true" style="width: 350px;">
@@ -19,7 +17,7 @@
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="PartnerID">PartnerID <span class="description">(påkrævet)</span></label>
+						<label for="PartnerID">PartnerID <span class="description">(required)</span></label>
 					</th>
 					<td>
 						<input name="PartnerID" type="text" id="PartnerID" value="" aria-required="true" style="width: 350px;">
@@ -27,7 +25,7 @@
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="URL">Affiliate Link <span class="description">(påkrævet)</span></label>
+						<label for="URL">Affiliate URL <span class="description">(required)</span></label>
 					</th>
 					<td>
 						<input name="URL" type="text" id="URL" value="" aria-required="true" style="width: 350px;">
@@ -37,7 +35,7 @@
 		</table>
 
 		<p class="submit">
-			<input type="submit" class="button button-primary" value="Tilføj ny Affiliate">
+			<input type="submit" class="button button-primary" value="Create">
 		</p>
 
 		</form>

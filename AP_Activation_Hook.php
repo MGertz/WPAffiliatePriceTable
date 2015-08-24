@@ -17,15 +17,15 @@ function AP_Activation_Hook() {
 		PRIMARY KEY (`id`)
     ) CHARACTER SET utf8 COLLATE utf8_general_ci;";
     dbDelta($sql);
-    
+
     // Opret TradeDoubler.dk
     $insert = array('name' => 'TradeDoubler.dk','partner_id'=>'0','url' => 'http://clk.tradedoubler.com/click?p([ProgramID])a([PartnerID])url([URL])');
     $wpdb->insert($tablename,$insert);
-    
+
     // Opret Partner-Ads.dk
     $insert = array('name' => 'Partner-Ads.dk','partner_id'=>'0','url' => 'http://www.partner-ads.com/dk/klikbanner.php?partnerid=[PartnerID]&bannerid=[ProgramID]&htmlurl=[URL]');
     $wpdb->insert($tablename,$insert);
-    
+
 
 
 	$tablename = $prefix."ap_webshops";
@@ -79,6 +79,5 @@ function AP_Activation_Hook() {
     dbDelta($sql);
 
 
-	
-}
 
+}
