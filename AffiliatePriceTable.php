@@ -41,7 +41,7 @@ function AP_menu() {
 		'Webshops',							// Menu Title
 		'manage_options',					// Capability
 		'APT-Webshops',      	// MenuSlug
-		'AP_WebShop'
+		'APT_WebShop'
 	);
 
 	add_submenu_page(
@@ -72,17 +72,21 @@ function AP_menu() {
 		'AP_Settings'
 	);
 
-
+	// indstillinger link
+	add_submenu_page(
+		'Affiliate-Plugin',					// Parent Slug
+		'Styling',					// Page Title
+		'Styling',					// Menu Title
+		'manage_options',					// Capability
+		'APT-Style',		// MenuSlug
+		'APT_Style'
+	);
 
 
 
 	remove_submenu_page('Affiliate-Plugin','Affiliate-Plugin');
 }
 add_action('admin_menu','AP_menu');
-
-
-
-
 
 
 // HER ER DE NYE HOOKS
@@ -126,7 +130,8 @@ function AP_Prices() {
     require_once"Prices-List.php";
     exit;
 }
-function AP_Webshop() {
+
+function APT_Webshop() {
 	$action = $_GET["action"];
 
     if( $action == "Add" ) {
@@ -141,7 +146,12 @@ function AP_Webshop() {
     }
 }
 
+function APT_Styling() {
 
+	require_once"APT_Styling.php";
+	exit;
+
+}
 
 
 
@@ -200,9 +210,7 @@ function AP_Content($content) {
 
 // Denne function tilføjer stylesheet til websiden
 function AP_Add_Style() {
-	$theme = get_current_theme();
-
-	wp_enqueue_style('core',plugins_url('css/style-'.$theme.'.css',__FILE__));
+	wp_enqueue_style('core',plugins_url('css/style.css',__FILE__));
 }
 add_action('wp_enqueue_scripts','AP_Add_Style');
 

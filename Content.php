@@ -16,12 +16,13 @@ if( is_single() ) {
   $table_id = str_replace("[APT id=","",$APT_Table);
   $table_id = str_replace(']',"",$table_id);
 
-
+  // used to mark every second line
+  $second = "1";
 
 
   // table header
-  $out  = "<table class='APT_Outer'>";
-  $out .= "<thead><tr>";
+  $out  = "<table class='apt_outer'>";
+  $out .= "<thead><tr class='apt_head'>";
   $out .= "<th>Webshop</th>";
   $out .= "<th>Price</th>";
   $out .= "<th>Shipping</th>";
@@ -32,8 +33,31 @@ if( is_single() ) {
 
     $sql = "SELECT * FROM `".$prefix."ap_prices` WHERE `table_id` = '".$table_id."' ORDER BY `price`";
     $result = $wpdb->get_results($sql);
+
+    $rows = $wpdb->num_rows;
+    $line = 1;
+
+
     foreach( $result as $row ) {
-      $out .= "<tr class='APT_row'>";
+
+
+      $out .= "<tr class='";
+
+      if( $line < $rows ) {
+        $out .= "apt_row";
+        $line++;
+      } else {
+        $out .= "apt_last";
+      }
+
+
+      if( $second == 2 ) {
+        $out .= " apt_second";
+        $secound = "0";
+      }
+      $second++;
+
+      $out .= "'>";
 
       $product_url = $row->product_url;
 
@@ -64,7 +88,7 @@ if( is_single() ) {
       $url = str_replace("[PartnerID]",$partner_id,$url);
       $url = str_replace("[URL]",$product_url,$url);
 
-      $out .= "<td class='apt_link'><a href='".$url."' class='apt_button' target='_blank'>Buy</a></td>";
+      $out .= "<td class='apt_link'><a href='".$url."' class='apt_button' target='_blank'>Buy Now</a></td>";
       $out .= "</tr>";
     }
 
