@@ -6,18 +6,15 @@ if( is_single() ) {
   global $wpdb;
   $prefix = $wpdb->prefix;
 
-  // " is changed to strange html tags, convert them back.
-  $content = str_replace("&#8221;",'"',$content);
-  $content = str_replace("&#8243;",'"',$content);
 
-
+  // Git the [APT id] tag
   $pattern = '/\[APT\sid.+]/';
   preg_match($pattern,$content,$result, PREG_OFFSET_CAPTURE);
-
   $APT_Table = $result[0][0];
 
-  $table_id = str_replace("[APT id=\"","",$APT_Table);
-  $table_id = str_replace('"]',"",$table_id);
+  // Get the ID number
+  $table_id = str_replace("[APT id=","",$APT_Table);
+  $table_id = str_replace(']',"",$table_id);
 
 
 
