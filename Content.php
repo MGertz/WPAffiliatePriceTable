@@ -19,11 +19,8 @@ if( is_single() ) {
 
 
 
-  // Header tekst needs to be chagne able later
-  $out = "<h3 class='APT_Header'>Price List</h3>";
-
   // table header
-  $out .= "<table class='APT_Outer'>";
+  $out  = "<table class='APT_Outer'>";
   $out .= "<thead><tr>";
   $out .= "<th>Webshop</th>";
   $out .= "<th>Price</th>";
@@ -34,10 +31,9 @@ if( is_single() ) {
   $out .= "<tbody>";
 
     $sql = "SELECT * FROM `".$prefix."ap_prices` WHERE `table_id` = '".$table_id."' ORDER BY `price`";
-    echo $sql;
     $result = $wpdb->get_results($sql);
     foreach( $result as $row ) {
-      $out .= "<tr>";
+      $out .= "<tr class='APT_row'>";
 
       $product_url = $row->product_url;
 
