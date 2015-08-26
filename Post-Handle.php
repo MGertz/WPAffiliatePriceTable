@@ -84,9 +84,17 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
         foreach( $ShopList as $row ) {
 
-            #print_r($row);
+            echo "<pre>";
+						print_r($row);
+						echo "</pre>";
+
 
             if( $row["ProductUrl"] != "" ) {
+
+								// Check if http is added to the url.
+								if( substr($row["ProductUrl"],0,4) != "http" ) {
+									$row["ProductUrl"] = "http://".$row["ProductUrl"];
+								}
 
                 $sql2 = "SELECT * FROM `".$wpdb->prefix."ap_webshops` WHERE `id` = '".$row["WebshopID"]."';";
                 $result2 = $wpdb->get_results($sql2);

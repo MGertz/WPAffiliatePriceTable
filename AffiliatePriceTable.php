@@ -189,7 +189,8 @@ function AP_wp_loaded() {
 // Denne funktion laver indholdet i en post
 add_filter('the_content','AP_Content');
 function AP_Content($content) {
-	require_once"AP_Content.php";
+	#require_once"AP_Content.php";
+	require_once"Content.php";
 	return $content;
 }
 
