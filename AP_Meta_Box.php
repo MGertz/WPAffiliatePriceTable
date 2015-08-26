@@ -1,5 +1,20 @@
 <?php
 
+/*
+_________
+\_____   \
+   /   __/
+  |   |
+  |___|
+  <___>
+
+// IF THE META BOX NEEDS TO BE ENABLED LATER, THEN THE LINE BELOW NEEDS TO BE MOVED INTO AffiliatePriceTable.php file
+
+// Include file with Meta Box for edit post
+#require_once"AP_Meta_Box.php";
+
+*/
+
 // Sørg for at meta boksene kun loades på post edit/new siden
 add_action('load-post.php','AP_Meta_Box_Setup');
 add_action('load-post-new.php','AP_Meta_Box_Setup');
@@ -28,20 +43,20 @@ function AP_Meta_Box_Add() {
 // Content til boksen
 
 function AP_Meta_Box_Content($object,$box) {
-    
+
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$postID = get_the_ID();
 
 	$sql = "SELECT * FROM `".$prefix."ap_tables` ORDER BY `name`";
     $result = $wpdb->get_results($sql);
-    
+
     foreach( $result as $row ) {
 
 		$tables[$row->id] = $row->name;
 	}
-    
-    
+
+
 
 	$sql = "SELECT * FROM `".$prefix."ap_tables_posts` WHERE `post_id` = '".$postID."'";
     $result = $wpdb->get_results($sql);
@@ -55,7 +70,7 @@ function AP_Meta_Box_Content($object,$box) {
 	foreach( $tables as $key => $val ) {
 		echo "<li id='table-".$key."'>";
 		echo "<label class='selectit'><input type='checkbox' value='".$key."' name='post_tables[]' id='in-tables-".$key."'";
-		
+
 		if( $table_id == $key ) {
 			echo " checked='checked'";
 		}
@@ -64,7 +79,7 @@ function AP_Meta_Box_Content($object,$box) {
 		echo "</li>";
 	}
 	echo "</ul>";
-    
+
 }
 
 
@@ -85,8 +100,8 @@ function AP_Meta_Box_Save($postid,$post) {
 
 	if( isset($_POST["post_tables"]) ) {
 		$post_tables = $_POST["post_tables"];
-        
-       
+
+
 		// indsæt så de posts som der skal bruges.
 		$rows = count($post_tables);
 
@@ -96,12 +111,12 @@ function AP_Meta_Box_Save($postid,$post) {
                 'table_id' => $row
             );
             $wpdb->insert($table,$insert);
-            
+
         }
 
 	}
-    
-    
+
+
 }
 
 

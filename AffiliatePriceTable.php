@@ -235,10 +235,6 @@ add_action('init','myinit');
 
 
 
-// Include file with Meta Box for edit post
-require_once"AP_Meta_Box.php";
-
-
 
 
 
