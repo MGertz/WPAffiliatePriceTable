@@ -216,20 +216,6 @@ add_action('wp_enqueue_scripts','AP_Add_Style');
 
 
 
-
-
-// Denne function tilføjer stylesheet til admin siden
-function AP_Add_Style_Admin() {
-	wp_enqueue_style('',plugins_url('css/style-admin.css',__FILE__));
-}
-add_action('admin_init','AP_Add_Style_Admin');
-
-
-
-
-
-
-
 // Denne function tjekker om der skal køres et cronjob.
 function myinit() {
 	if( isset($_GET["AffiliatePluginCron"]) AND $_GET["AffiliatePluginCron"] == "true" ) {
