@@ -1,9 +1,5 @@
 .apt_outer {
   border: 1px solid #000;
-
-  #border-top: 1px solid #000;
-  #border-left: 1px solid #000;
-  #border-right: 1px solid #000;
   width: 100%;
 }
 
@@ -47,6 +43,7 @@
 .apt_button:hover,
 .apt_button:focus {
     border: 1px solid #f88d00;
+    #border: 1px solid #ae6300;
     background: #ffc200;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffc200), to(#d17700));
     background: -moz-linear-gradient(top, #ffc200, #d17700);

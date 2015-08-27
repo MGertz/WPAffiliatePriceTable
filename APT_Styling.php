@@ -1,17 +1,22 @@
 <?php
 
 
-
+$css = file_get_contents(plugin_dir_path( __FILE__ )."css/style.css");
 
 ?>
 <div class="wrap">
   <h2>Change style of the Price table </h2>
 
   <form action="" method="post">
-    <input type="hidden" name="FormName" Value="APTStyling">
+    <input type="hidden" name="AP_Form_Post" Value="APTStyling">
+
+    <textarea style="width: 80%; height: 400px;" name="css_style"><? echo $css; ?></textarea>
 
 
-  <h3>Outer</h3>
+    <p class="submit">
+			<input type="submit" class="button button-primary" value="Save">
+		</p>
+
 
 
 
@@ -37,7 +42,7 @@
 
 
 
-
+<?php
 /*
 denne kode burde kunne læse en css file
 $css = <<<CSS

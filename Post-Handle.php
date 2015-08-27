@@ -219,6 +219,22 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
 	}
 
+	if( $_POST["AP_Form_Post"] == "APTStyling" ) {
+
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
+
+
+		$filepath = plugin_dir_path( __FILE__ )."css/style.css";
+		$content = $_POST["css_style"];
+
+		file_put_contents($filepath,$content);
+
+		header("Location: ?page=APT-Style");
+		exit;
+	}
+
 
 
 

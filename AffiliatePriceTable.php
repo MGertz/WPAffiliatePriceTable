@@ -65,21 +65,11 @@ function AP_menu() {
 	// indstillinger link
 	add_submenu_page(
 		'Affiliate-Plugin',					// Parent Slug
-		'Settings',					// Page Title
-		'Settings',					// Menu Title
-		'manage_options',					// Capability
-		'APT-Settings',		// MenuSlug
-		'AP_Settings'
-	);
-
-	// indstillinger link
-	add_submenu_page(
-		'Affiliate-Plugin',					// Parent Slug
 		'Styling',					// Page Title
 		'Styling',					// Menu Title
 		'manage_options',					// Capability
 		'APT-Style',		// MenuSlug
-		'APT_Style'
+		'APT_Styling'
 	);
 
 
