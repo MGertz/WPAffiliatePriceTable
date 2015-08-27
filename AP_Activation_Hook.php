@@ -69,15 +69,5 @@ function AP_Activation_Hook() {
     dbDelta($sql);
 
 
-	$tablename = $prefix."ap_tables_posts";
-	$sql = "CREATE TABLE ".$tablename." (
-		id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		post_id int(10) UNSIGNED NOT NULL,
-		table_id int(10) UNSIGNED NOT NULL,
-		PRIMARY KEY (`id`)
-	) CHARACTER SET utf8 COLLATE utf8_general_ci;";
-    dbDelta($sql);
-
-
 
 }
