@@ -175,7 +175,7 @@ function AP_wp_loaded() {
 
 
     // Denne funktioner kaldes når der skal laves price update. fra Tabel listen.
-    if( $_GET["page"] == "Affiliate-Plugin-Tables"  AND $_GET["action"] == "PriceUpdate" ) {
+    if( $_GET["page"] == "APT-Tables"  AND $_GET["action"] == "PriceUpdate" ) {
     	require_once"AP_PriceUpdater.php";
     	header("Location: ?page=Affiliate-Plugin-Tables");
     	exit;

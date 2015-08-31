@@ -1,8 +1,10 @@
-
+﻿
 Placer denne tekst lige under overskriften på en siden for at vise en besked.
 
 <div class="updated notice below-h2"><p>hejsa</p></div>
 
+
+Når der tilføjes et netværk, så skal der stå hvilke tags der skal være i linket, sådan at det bliver bygget rigtigt
 
 
 
