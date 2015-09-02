@@ -8,7 +8,7 @@ function AP_Activation_Hook() {
 
 	$prefix = $wpdb->prefix;
 
-	$tablename = $prefix."ap_affiliates";
+	$tablename = $prefix."apt_affiliates";
 	$sql = "CREATE TABLE ".$tablename." (
 		id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 		name varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -28,7 +28,7 @@ function AP_Activation_Hook() {
 
 
 
-	$tablename = $prefix."ap_webshops";
+	$tablename = $prefix."apt_webshops";
 	$sql = "CREATE TABLE ".$tablename." (
 		id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 		shop_name varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -44,7 +44,7 @@ function AP_Activation_Hook() {
     dbDelta($sql);
 
 
-	$tablename = $prefix."ap_prices";
+	$tablename = $prefix."apt_prices";
 	$sql = "CREATE TABLE ".$tablename." (
 		id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 		webshop_id int(10) UNSIGNED NOT NULL,
@@ -60,7 +60,7 @@ function AP_Activation_Hook() {
     dbDelta($sql);
 
 
-	$tablename = $prefix."ap_tables";
+	$tablename = $prefix."apt_tables";
 	$sql = "CREATE TABLE ".$tablename." (
 		id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 		name varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,

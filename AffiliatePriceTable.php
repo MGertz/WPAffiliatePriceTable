@@ -223,5 +223,5 @@ add_action('init','myinit');
 
 
 // Activation hook
-require_once "AP_Activation_Hook.php";
+require_once "Activation_Hook.php";
 register_activation_hook(__FILE__,'AP_Activation_Hook');
