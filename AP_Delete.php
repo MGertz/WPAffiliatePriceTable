@@ -7,7 +7,7 @@ $ID = $_GET["ID"];
 
 	if( $_GET["page"] == "APT-Affiliate" ) {
 
-		$table = $wpdb->prefix."ap_affiliates";
+		$table = $wpdb->prefix."apt_affiliates";
 		$where = array('id'=>$ID);
 
 		$wpdb->delete($table,$where);
@@ -28,17 +28,17 @@ $ID = $_GET["ID"];
 	if( $_GET["page"] == "APT-Tables" ) {
 
 		// Slet tabellen
-	    $table = $wpdb->prefix."ap_tables";
+	    $table = $wpdb->prefix."apt_tables";
 	    $where = array('id'=>$ID);
 	    $wpdb->delete($table,$where);
 
 	    // Slet alle priser som er til denne tabel
-	    $table = $wpdb->prefix."ap_prices";
+	    $table = $wpdb->prefix."apt_prices";
 	    $where = array('table_id'=>$ID);
 	    $wpdb->delete($table,$where);
 
 	    // Slet alle post tabel relationer
-	    $table = $wpdb->prefix."ap_tables_posts";
+	    $table = $wpdb->prefix."apt_tables_posts";
 	    $where = array('table_id'=>$ID);
 	    $wpdb->delete($table,$where);
 
@@ -51,11 +51,11 @@ $ID = $_GET["ID"];
 
 	if( $_GET["page"] == "APT-Webshops" ) {
 
-		$table = $wpdb->prefix."ap_webshops";
+		$table = $wpdb->prefix."apt_webshops";
 	    $where = array('id'=>$ID);
 	    $wpdb->delete($table,$where);
 
-	    $table = $wpdb->prefix."ap_prices";
+	    $table = $wpdb->prefix."apt_prices";
 	    $where = array('webshop_id'=>$ID);
 	    $wpdb->delete($table,$where);
 

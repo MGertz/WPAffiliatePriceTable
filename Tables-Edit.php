@@ -2,7 +2,7 @@
 
 global $wpdb;
 
-$sql = "SELECT * FROM `".$wpdb->prefix."ap_tables` WHERE `id` = '".$_GET["ID"]."';";
+$sql = "SELECT * FROM `".$wpdb->prefix."apt_tables` WHERE `id` = '".$_GET["ID"]."';";
 
 $result = $wpdb->get_results($sql);
 

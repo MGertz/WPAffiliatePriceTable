@@ -4,7 +4,7 @@ $ID = $_GET["ID"];
 
 global $wpdb;
 
-$sql = "SELECT * FROM `".$wpdb->prefix."ap_affiliates` WHERE `id` = '".$ID."';";
+$sql = "SELECT * FROM `".$wpdb->prefix."apt_affiliates` WHERE `id` = '".$ID."';";
 $result = $wpdb->get_results($sql);
 foreach( $result as $row ) {
 	$Name = $row->name;

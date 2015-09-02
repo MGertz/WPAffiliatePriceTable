@@ -19,20 +19,20 @@ global $wpdb;
 $prefix = $wpdb->prefix;
 
 
-$sql = "SELECT * FROM `".$prefix."ap_tables`";
+$sql = "SELECT * FROM `".$prefix."apt_tables`";
 $result = $wpdb->get_results($sql);
 foreach( $result as $row ) {
 	$tables[$row->id] = $row->name;
 }
 
-$sql = "SELECT * FROM `".$prefix."ap_webshops`";
+$sql = "SELECT * FROM `".$prefix."apt_webshops`";
 $result = $wpdb->get_results($sql);
 foreach( $result  as $row ) {
 	$webshops[$row->id] = $row->shop_name;
 }
 
 
-$sql = "SELECT * FROM `".$prefix."ap_prices` ORDER BY `added`";
+$sql = "SELECT * FROM `".$prefix."apt_prices` ORDER BY `added`";
 $result = $wpdb->get_results($sql);
 foreach( $result as $row ) {
 	$prices[$row->id] = array(
@@ -103,7 +103,7 @@ foreach( $result as $row ) {
 			</tfoot>
 			<tbody>
 				<?
-					$sql = "SELECT * FROM `".$prefix."ap_prices` ORDER BY `Added`";
+					$sql = "SELECT * FROM `".$prefix."apt_prices` ORDER BY `Added`";
 					$result = $wpdb->get_results($sql);
 					foreach( $result as $row ) {
 

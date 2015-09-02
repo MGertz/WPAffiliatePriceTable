@@ -6,7 +6,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
 	// denne del kaldes når der oprettes en webshop i systemet.
 	if( $_POST["AP_Form_Post"] == "FormWebshopAdd" ) {
-        $table = $prefix."ap_webshops";
+        $table = $prefix."apt_webshops";
         $insert = array(
             'shop_name' => $_POST["ShopName"],
             'site_url' => $_POST["SiteUrl"],
@@ -26,7 +26,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
 
 	if( $_POST["AP_Form_Post"] == "FormTablesAdd" ) {
-        $table = $prefix."ap_tables";
+        $table = $prefix."apt_tables";
         $insert = array('name'=>$_POST["Name"]);
 
         $wpdb->insert($table,$insert);
@@ -37,7 +37,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 	}
 
    	if( $_POST["AP_Form_Post"] == "FormTablesEdit" ) {
-        $table = $wpdb->prefix."ap_tables";
+        $table = $wpdb->prefix."apt_tables";
         $where = array( 'id' => $_POST["ID"] );
 
         $update = array(
@@ -54,7 +54,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 	}
 
 	if( $_POST["AP_Form_Post"] == "FormWebshopEdit") {
-        $table = $wpdb->prefix."ap_webshops";
+        $table = $wpdb->prefix."apt_webshops";
         $where = array( 'id' =>$_POST["ID"]);
 
         $update = array(
@@ -76,7 +76,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 	}
 
     if( $_POST["AP_Form_Post"] == "FormTablesPrices" ) {
-        $table = $wpdb->prefix."ap_prices";
+        $table = $wpdb->prefix."apt_prices";
 
         $TableID = $_POST["ID"];
 
@@ -96,7 +96,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 									$row["ProductUrl"] = "http://".$row["ProductUrl"];
 								}
 
-                $sql2 = "SELECT * FROM `".$wpdb->prefix."ap_webshops` WHERE `id` = '".$row["WebshopID"]."';";
+                $sql2 = "SELECT * FROM `".$wpdb->prefix."apt_webshops` WHERE `id` = '".$row["WebshopID"]."';";
                 $result2 = $wpdb->get_results($sql2);
                 foreach( $result2 as $row2 ) {
                     $crawl_from = stripslashes($row2->crawl_from);
@@ -185,7 +185,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
 	if( $_POST["AP_Form_Post"] == "FormAffiliateAdd" ) {
 
-        $table = $prefix."ap_affiliates";
+        $table = $prefix."apt_affiliates";
         $insert = array(
             'name' => $_POST["Name"],
             'url' => $_POST["URL"],
@@ -201,7 +201,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
 
 	if( $_POST["AP_Form_Post"] == "FormAffiliateEdit" ) {
-        $table = $wpdb->prefix."ap_affiliates";
+        $table = $wpdb->prefix."apt_affiliates";
         $where = array( 'id' => $_POST["ID"] );
 
         $update = array(

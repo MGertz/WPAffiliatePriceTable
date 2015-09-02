@@ -5,7 +5,7 @@ global $wpdb;
 $prefix = $wpdb->prefix;
 
 // Hent Crawler informationer for de enkelte webshops
-$sql = "SELECT * FROM `".$prefix."ap_webshops`";
+$sql = "SELECT * FROM `".$prefix."apt_webshops`";
 $result = $wpdb->get_results($sql);
 foreach( $result as $row ) {
 	$webshops[$row->ID] = array( 'crawl_from' => $row->crawl_from , 'crawl_to' => $row->crawl_to );
@@ -36,7 +36,7 @@ if( $action == "update" ) {
 
 
 			// Hent Produkt URL
-			$sql2 = "SELECT * FROM `".$prefix."ap_prices` WHERE `id` = '".$row["price_id"]."';";
+			$sql2 = "SELECT * FROM `".$prefix."apt_prices` WHERE `id` = '".$row["price_id"]."';";
 			$result2 = $wpdb->get_results($sql2);
 			foreach( $result2 as $row2 ) {
 				$ProductUrl = $row2->product_url;
@@ -47,7 +47,7 @@ if( $action == "update" ) {
 
 			$price = AP_Crawler($ProductUrl,$crawl_from,$crawl_to);
 
-			$table = $wpdb->prefix."ap_prices";
+			$table = $wpdb->prefix."apt_prices";
 			$where = array( 'ID' => $row["price_id"] );
 
 			$update = array( 'price' => $price , 'last_updated' => date('Y-m-d H:i:s'));

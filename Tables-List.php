@@ -37,7 +37,7 @@ $prefix = $wpdb->prefix;
 		<tbody>
 
 		<?php
-			$sql = "SELECT * FROM `".$prefix."ap_tables` ORDER BY `name`;";
+			$sql = "SELECT * FROM `".$prefix."apt_tables` ORDER BY `name`;";
             $result = $wpdb->get_results($sql);
 
             foreach( $result as $row ) {

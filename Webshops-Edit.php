@@ -4,7 +4,7 @@ $ID = $_GET["ID"];
 
 global $wpdb;
 
-$sql = "SELECT * FROM `".$wpdb->prefix."ap_webshops` WHERE `id` = '".$ID."';";
+$sql = "SELECT * FROM `".$wpdb->prefix."apt_webshops` WHERE `id` = '".$ID."';";
 $result = $wpdb->get_results($sql);
 
 foreach( $result as $row ) {
@@ -63,7 +63,7 @@ foreach( $result as $row ) {
 					<td>
 						<select name="AffiliateID" style="width: 350px;">
 							<?php
-								$sql = "SELECT * FROM `".$wpdb->prefix."ap_affiliates` ORDER BY `Name`";
+								$sql = "SELECT * FROM `".$wpdb->prefix."apt_affiliates` ORDER BY `Name`";
 								$result = $wpdb->get_results($sql);
 								foreach( $result as $row ) {
 									echo "<option value='".$row->id."'";

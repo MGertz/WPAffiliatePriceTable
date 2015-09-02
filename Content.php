@@ -31,7 +31,7 @@ if( is_single() ) {
 
   $out .= "<tbody>";
 
-    $sql = "SELECT * FROM `".$prefix."ap_prices` WHERE `table_id` = '".$table_id."' ORDER BY `price`";
+    $sql = "SELECT * FROM `".$prefix."apt_prices` WHERE `table_id` = '".$table_id."' ORDER BY `price`";
     $result = $wpdb->get_results($sql);
 
     $rows = $wpdb->num_rows;
@@ -61,7 +61,7 @@ if( is_single() ) {
 
       $product_url = $row->product_url;
 
-        $sql2 = "SELECT * FROM `".$prefix."ap_webshops` WHERE `id` = ".$row->webshop_id;
+        $sql2 = "SELECT * FROM `".$prefix."apt_webshops` WHERE `id` = ".$row->webshop_id;
         $result2 = $wpdb->get_results($sql2);
         foreach( $result2 as $row2 ) {
           $out .= "<td>".$row2->shop_name."</td>";
@@ -76,7 +76,7 @@ if( is_single() ) {
 
 
 
-      $sql3 = "SELECT * FROM `".$prefix."ap_affiliates` WHERE `id` = ".$affiliate_id;
+      $sql3 = "SELECT * FROM `".$prefix."apt_affiliates` WHERE `id` = ".$affiliate_id;
       $result3 = $wpdb->get_results($sql3);
       foreach( $result3 as $row3 ) {
         $url = $row3->url;

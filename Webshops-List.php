@@ -14,7 +14,7 @@ function my_row_actions($id=0) {
 global $wpdb;
 
 
-$sql = "SELECT * FROM `".$wpdb->prefix."ap_affiliates` ORDER BY `Name`";
+$sql = "SELECT * FROM `".$wpdb->prefix."apt_affiliates` ORDER BY `Name`";
 $result = $wpdb->get_results($sql);
 foreach( $result as $row ) {
 	$affiliates[$row->id] = $row->name;
@@ -53,7 +53,7 @@ foreach( $result as $row ) {
 		<tbody>
 
 		<?php
-			$sql = "SELECT * FROM `".$wpdb->prefix."ap_webshops` ORDER BY `shop_name`;";
+			$sql = "SELECT * FROM `".$wpdb->prefix."apt_webshops` ORDER BY `shop_name`;";
 
             $result = $wpdb->get_results($sql);
 

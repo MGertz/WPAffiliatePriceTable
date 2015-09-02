@@ -36,7 +36,7 @@ $prefix = $wpdb->prefix;
 		<tbody>
 
 		<?php
-			$sql = "SELECT * FROM `".$prefix."ap_affiliates` ORDER BY `name`;";
+			$sql = "SELECT * FROM `".$prefix."apt_affiliates` ORDER BY `name`;";
             $result = $wpdb->get_results($sql);
 
 			$alternate = true;

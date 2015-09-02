@@ -34,7 +34,7 @@ global $wpdb;
 						<select name="AffiliateID" style="width: 350px;">
                             <option value="0" disabled selected>-- SELECT AFFILIATE NETWORK --</option>
 							<?php
-								$sql = "SELECT * FROM `".$wpdb->prefix."ap_affiliates` ORDER BY `Name`";
+								$sql = "SELECT * FROM `".$wpdb->prefix."apt_affiliates` ORDER BY `Name`";
                                 $result = $wpdb->get_results($sql);
 
                                 foreach( $result as $row ) {

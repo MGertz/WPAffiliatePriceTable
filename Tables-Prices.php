@@ -3,7 +3,7 @@ global $wpdb;
 
 
 // Hent informationer om denne tabel
-$sql = "SELECT * FROM `".$wpdb->prefix."ap_tables` WHERE `id` = '".$_GET["ID"]."';"; 
+$sql = "SELECT * FROM `".$wpdb->prefix."apt_tables` WHERE `id` = '".$_GET["ID"]."';";
 $result = $wpdb->get_results($sql);
 foreach( $result as $row )  {
 	$TableName = $row->name;
@@ -11,11 +11,11 @@ foreach( $result as $row )  {
 }
 
 // Hent alle affiliate netværk og gem dem i et array
-$sql = "SELECT * FROM `".$wpdb->prefix."ap_affiliates`";
+$sql = "SELECT * FROM `".$wpdb->prefix."apt_affiliates`";
 $result = $wpdb->get_results($sql);
 
 foreach( $result as $row ) {
-	$affiliates[$row->id] = $row->name;   
+	$affiliates[$row->id] = $row->name;
 }
 
 ?>
@@ -54,7 +54,7 @@ foreach( $result as $row ) {
 				<tbody>
 
 					<?php
-					$sql = "SELECT * FROM `".$wpdb->prefix."ap_webshops` ORDER BY `shop_name`;";
+					$sql = "SELECT * FROM `".$wpdb->prefix."apt_webshops` ORDER BY `shop_name`;";
 					$result = $wpdb->get_results($sql);
 
 					$alternate = true;
@@ -64,7 +64,7 @@ foreach( $result as $row ) {
 					foreach( $result as $row ) {
 						echo "<input type='hidden' name='ShopList[".$ShopLine."][WebshopID]' value='".$row->id."'>";
 
-						$sql2 = "SELECT * FROM `".$wpdb->prefix."ap_prices` WHERE `webshop_id` = ".$row->id." AND `table_id` = ".$ID.""; // $ID hentes i toppen af scriptet
+						$sql2 = "SELECT * FROM `".$wpdb->prefix."apt_prices` WHERE `webshop_id` = ".$row->id." AND `table_id` = ".$ID.""; // $ID hentes i toppen af scriptet
 
 						$result2 = $wpdb->get_results($sql2);
 
@@ -105,7 +105,7 @@ foreach( $result as $row ) {
 							echo "<td><input type='text' name='ShopList[".$ShopLine."][ProductUrl]' value='".$ProductUrl."' style='width: 100%;'></td>";
 							echo "<td><input type='text' name='ShopList[".$ShopLine."][Price]' value='".$Price."' style='width: 100%;'></td>";
 							echo "<td>".$last_updated."</td>";
-						
+
 						echo "</tr>";
 						$ShopLine++;
 
