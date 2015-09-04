@@ -8,7 +8,7 @@ function my_row_actions($id=0) {
 	<a href=\"".$page."&action=Edit&ID=".$id."\">Edit</a> |
 	<a href=\"".$page."&action=Delete&ID=".$id."\">Delete</a> |
     <a href=\"".$page."&action=Prices&ID=".$id."\">Prices</a> |
-    <a href=\"".$page."&action=PriceUpdate&ID=".$id."\">Update Prices</a>
+    <a href=\"".$page."&action=PriceUpdater&ID=".$id."\">Update Prices</a>
 	</div>";
 
 	return $out;

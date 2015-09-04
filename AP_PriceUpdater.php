@@ -1,5 +1,5 @@
 <?php
-
+/*
 $out ="";
 
 global $wpdb;
@@ -37,3 +37,4 @@ foreach( $result as $row ) {
 
 header("Location: http://wordpress/wp-admin/admin.php?page=APT-Tables&acton=Prices");
 exit;
+*/

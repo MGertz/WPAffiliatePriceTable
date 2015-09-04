@@ -166,22 +166,26 @@ function AP_wp_loaded() {
 	}
 
 
-    // Tjek om der skal laves update af alle priser.
-    if( $_GET["page"] == "Affiliate-Plugin-Prices" && $_GET["action"] == "Update" ) {
-    	require_once"Prices-List-Updater.php";
-    }
+	// Tjek om der skal hentes priser
+	if( $_GET["action"] == "PriceUpdater" ) {
+		require_once"PriceUpdater.php";
+	}
+
+  // Denne funktioner kaldes når der skal laves price update. fra Tabel listen.
+  if( $_GET["page"] == "APT-Tables"  AND $_GET["action"] == "PriceUpdate" ) {
+  	require_once"AP_PriceUpdater.php";
+  	header("Location: ?page=Affiliate-Plugin-Tables");
+  	exit;
+  }
 
 
-
-
-    // Denne funktioner kaldes når der skal laves price update. fra Tabel listen.
-    if( $_GET["page"] == "APT-Tables"  AND $_GET["action"] == "PriceUpdate" ) {
-    	require_once"AP_PriceUpdater.php";
-    	header("Location: ?page=Affiliate-Plugin-Tables");
-    	exit;
-    }
-
-
+		/*
+		// JEG TROR IKKE DENNE SIDE BRUGES
+	  // Tjek om der skal laves update af alle priser.
+	  if( $_GET["page"] == "Affiliate-Plugin-Prices" && $_GET["action"] == "Update" ) {
+	  	require_once"Prices-List-Updater.php";
+	  }
+		*/
 
 
 }
