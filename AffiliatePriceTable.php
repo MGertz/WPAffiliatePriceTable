@@ -171,13 +171,6 @@ function AP_wp_loaded() {
 		require_once"PriceUpdater.php";
 	}
 
-  // Denne funktioner kaldes når der skal laves price update. fra Tabel listen.
-  if( $_GET["page"] == "APT-Tables"  AND $_GET["action"] == "PriceUpdate" ) {
-  	require_once"AP_PriceUpdater.php";
-  	header("Location: ?page=Affiliate-Plugin-Tables");
-  	exit;
-  }
-
 
 		/*
 		// JEG TROR IKKE DENNE SIDE BRUGES

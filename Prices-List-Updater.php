@@ -1,5 +1,8 @@
 <?php
 
+echo "Bruges filen???? JA Det er Prices-List-Updater.php";
+/*
+
 global $wpdb;
 
 $prefix = $wpdb->prefix;
@@ -63,3 +66,4 @@ if( $action == "update" ) {
 	}
 
 }
+*/

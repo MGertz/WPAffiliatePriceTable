@@ -116,7 +116,7 @@ foreach( $result as $row ) {
 			</tfoot>
 			<tbody>
 				<?
-					$sql = "SELECT * FROM `".$prefix."apt_prices` ORDER BY `Added`";
+					$sql = "SELECT * FROM `".$prefix."apt_prices` ORDER BY `last_updated`";
 					$result = $wpdb->get_results($sql);
 					foreach( $result as $row ) {
 
