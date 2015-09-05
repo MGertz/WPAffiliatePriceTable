@@ -50,7 +50,7 @@ function AP_Activation_Hook() {
 		webshop_id int(10) UNSIGNED NOT NULL,
 		table_id int(10) UNSIGNED NOT NULL,
 		product_url varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-		price Decimal(10.2) NOT NULL,
+		price Decimal(10,2) NOT NULL,
 		show_in_table char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Y',
 		auto_update_price char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Y',
 		last_updated datetime NULL,
