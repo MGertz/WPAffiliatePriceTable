@@ -213,8 +213,78 @@ function myinit() {
 add_action('init','myinit');
 
 
+// Denne funktion skal gribe links
+add_action("init",function() {
+
+	// Tjek om permalink er aktiveres, hvis det er , skal denne funktion køre, eller skal den bare springes over.
+	if ( get_option('permalink_structure') ) {
+		global $wpdb;
 
 
+		$url = trim($_SERVER["REQUEST_URI"],"/");
+
+		$url = explode("/",$url);
+
+		$linker = $url[0];
+
+		if( $linker == "apt" ) {
+
+
+			$table = $url[1];
+			$shop = $url[2];
+
+			$sql = "SELECT * FROM `".$wpdb->prefix."apt_tables` WHERE `name` = '".$table."'";
+			$result = $wpdb->get_results($sql);
+			foreach( $result as $row ) {
+				$table_id = $row->id;
+			}
+			if( $table_id == "" ) {
+				header("Location: ".$_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]);
+				exit();
+			}
+
+			$sql = "SELECT * FROM `".$wpdb->prefix."apt_webshops` WHERE `shop_name` = '".$shop."'";
+			$result = $wpdb->get_results($sql);
+			foreach( $result as $row ) {
+				$affiliate_id = $row->affiliate_id;
+				$program_id = $row->program_id;
+				$webshop_id = $row->id;
+			}
+			if( $webshop_id == "" ) {
+				header("Location: ".$_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]);
+				exit();
+			}
+
+
+
+
+			$sql = "SELECT * FROM `".$wpdb->prefix."apt_prices` WHERE `webshop_id` = '".$webshop_id."' AND `table_id` = '".$table_id."'";
+			$result = $wpdb->get_results($sql);
+			foreach( $result as $row ) {
+				$product_url = $row->product_url;
+			}
+
+			$sql = "SELECT * FROM `".$wpdb->prefix."apt_affiliates` WHERE `id` = '".$affiliate_id."'";
+			$result = $wpdb->get_results($sql);
+			foreach( $result as $row ) {
+				$affiliate_url = $row->url;
+				$partner_id = $row->partner_id;
+			}
+
+
+			$affiliate_url = str_replace("[PartnerID]",$partner_id,$affiliate_url);
+			$affiliate_url = str_replace("[ProgramID]",$program_id,$affiliate_url);
+			$affiliate_url = str_replace("[URL]",$product_url,$affiliate_url);
+
+			header("Location: ".$affiliate_url);
+
+			die();
+
+		}
+	}
+
+
+});
 
 
 
