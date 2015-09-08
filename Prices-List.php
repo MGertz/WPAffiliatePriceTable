@@ -47,7 +47,7 @@ foreach( $result as $row ) {
 
 ?>
 <div class="wrap">
-	<h2>Price List</h2>
+	<h2>Price List<a href="?page=APT-Prices&action=Add" class="add-new-h2">Update All</a></h2>
 
 	<form action="?page=APT-Prices&action=Update" method="post">
 
