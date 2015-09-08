@@ -121,5 +121,7 @@ foreach( $result as $row ) {
 			</p>
 
 		</form>
+
+		<p><b>Info:</b> To insert this table on a post, please use the following text<br>[apt id=<?php echo $_GET["ID"]; ?>]<br>
 	</div>
 </div>
