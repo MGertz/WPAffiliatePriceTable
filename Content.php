@@ -1,6 +1,6 @@
 <?php
 
-if( is_single() ) {
+#if( is_single() ) {
 
   // Database info
   global $wpdb;
@@ -66,6 +66,7 @@ if( is_single() ) {
 
         $product_url = $row->product_url;
 
+
           $sql2 = "SELECT * FROM `".$prefix."apt_webshops` WHERE `id` = ".$row->webshop_id;
           $result2 = $wpdb->get_results($sql2);
           foreach( $result2 as $row2 ) {
@@ -74,9 +75,10 @@ if( is_single() ) {
             $shipping = $row2->shipping;
             $program_id = $row2->program_id;
             $affiliate_id = $row2->affiliate_id;
+            $webshop_name = $row2->shop_name;
           }
 
-        $out .= "<td>".$row->price." ".$currency."</td>";
+        $out .= "<td>".number_format($row->price,2,",",".")." ".$currency."</td>";
         $out .= "<td>".$shipping." ".$currency."</td>";
 
 
@@ -88,10 +90,21 @@ if( is_single() ) {
           $partner_id = $row3->partner_id;
         }
 
+        if ( get_option('permalink_structure') ) {
+          $sql4 = "SELECT * FROM `".$prefix."apt_tables` WHERE `id` = ".$table_id;
+          $result4 = $wpdb->get_results($sql4);
+          foreach( $result4 as $row4 ) {
+            $table_name = $row4->name;
+          }
 
-        $url = str_replace("[ProgramID]",$program_id,$url);
-        $url = str_replace("[PartnerID]",$partner_id,$url);
-        $url = str_replace("[URL]",$product_url,$url);
+          $url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]."/apt/".$table_name."/".$webshop_name;
+
+
+        } else {
+          $url = str_replace("[ProgramID]",$program_id,$url);
+          $url = str_replace("[PartnerID]",$partner_id,$url);
+          $url = str_replace("[URL]",$product_url,$url);
+        }
 
         $out .= "<td class='apt_link'><a href='".$url."' class='apt_button' target='_blank'>Buy Now</a></td>";
         $out .= "</tr>";
@@ -114,9 +127,6 @@ if( is_single() ) {
 
 
 
-} else {
-
-}
-
+# } // is_single() end
 
 ?>

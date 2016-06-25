@@ -15,10 +15,12 @@
 .apt_row td {
   border: 0px;
   border-bottom: 1px solid #000; !important;
+  color: #000000;
 }
 
 .apt_second td {
   background: lightgray;
+  color: #000000;
 }
 .apt_last td {
   border: 0px;
@@ -56,4 +58,5 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#ae6300), to(#ae6300));
     background: -moz-linear-gradient(top, #ae6300, #ae6300);
     background: linear-gradient(to bottom, #ae6300, #ae6300);
+color: #ffffff;
 }

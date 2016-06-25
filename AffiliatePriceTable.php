@@ -15,7 +15,7 @@ Author URI: mailto://michael@ringhus.dk
  * Tilføjer menu i admin delen
  *
  */
-function AP_menu() {
+add_action('admin_menu',function() {
 	add_menu_page(
 		'Affiliate Price Table', 			//Page Title
 		'APT',												//Menu Title
@@ -75,8 +75,7 @@ function AP_menu() {
 
 
 	remove_submenu_page('Affiliate-Plugin','Affiliate-Plugin');
-}
-add_action('admin_menu','AP_menu');
+});
 
 
 // HER ER DE NYE HOOKS
@@ -153,8 +152,7 @@ function APT_Styling() {
 
 // Denne kode kører hvergnag en side loades.
 // Her i kan også indsættes header() funktionen, så man kan udføre et job, og sende retur
-add_action('wp_loaded','AP_wp_loaded');
-function AP_wp_loaded() {
+add_action('wp_loaded',function() {
 
     // Når der postet en nyt indhold eller opdateres, sendes $_POST videre til denne side
 	require_once"Post-Handle.php";
@@ -181,7 +179,7 @@ function AP_wp_loaded() {
 		*/
 
 
-}
+});
 
 // Denne funktion laver indholdet i en post
 add_filter('the_content','AP_Content');
@@ -220,8 +218,7 @@ add_action("init",function() {
 	if ( get_option('permalink_structure') ) {
 		global $wpdb;
 
-
-		$url = trim($_SERVER["REQUEST_URI"],"/");
+		$url = trim( urldecode( $_SERVER["REQUEST_URI"] ) ,"/");
 
 		$url = explode("/",$url);
 
@@ -239,7 +236,7 @@ add_action("init",function() {
 				$table_id = $row->id;
 			}
 			if( $table_id == "" ) {
-				header("Location: ".$_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]);
+				#header("Location: ".$_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]);
 				exit();
 			}
 
