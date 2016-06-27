@@ -23,25 +23,41 @@ function AP_Crawler($url=false,$CrawlFrom=false,$CrawlTo=false) {
 	}
 
 
-  // Hent den ønskede side med cURL
-  $ch = curl_init($url); // initialize curl with given url
-  curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]); // set  useragent
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // write the response to a variable
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // follow redirects if any
-  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); // max. seconds to execute
-  curl_setopt($ch, CURLOPT_FAILONERROR, 1); // stop when it encounters an error
+	// Hent den ønskede side med cURL
+	$ch = curl_init($url); // initialize curl with given url
+	curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]); // set  useragent
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // write the response to a variable
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // follow redirects if any
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); // max. seconds to execute
+	curl_setopt($ch, CURLOPT_FAILONERROR, 1); // stop when it encounters an error
 
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 
 	$html = curl_exec($ch);
 
+	#echo "Original From: ".$CrawlFrom." - To: ".$CrawlTo."\n\n";
+
 	// Forbred crawlfrom og CrawlTo til at bruges i preg
 	$CrawlFrom = preg_quote($CrawlFrom);
 	$CrawlTo = preg_quote($CrawlTo);
 
+	// udkommenter ' i strengen.
+	$CrawlFrom = str_replace("'","\'",$CrawlFrom);
+	$CrawlTo = str_replace("'","\'",$CrawlTo);
+
+	#echo "After From: ".$CrawlFrom." - To: ".$CrawlTo."\n\n";
+
+	// Pattern der bruges når der hentes info
+	$pattern = "'".$CrawlFrom."(.*?)".$CrawlTo."'si";
+
+	#echo "Pattern: ".$pattern."\n";
+
 	// Grep prisen fra outputtet
-	preg_match("'".$CrawlFrom."(.*?)".$CrawlTo."'si",$html,$match);
+	preg_match($pattern,$html,$match);
+
+	#print_r($match);
+	#exit;
 
 	// Hent det første resultat ud i en variabel
 	$price = $match[0];

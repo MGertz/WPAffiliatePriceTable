@@ -2,7 +2,9 @@
 require_once "Crawler.php";
 global $wpdb;
 
-echo "Price Update er kaldt";
+#header("Content-Type: text/plain");
+#echo "Price Update er kaldt\n";
+
 
 // Hvis der bliver kaldt fra en pris listen
 if( $_GET["page"] == "APT-Prices" ) {
