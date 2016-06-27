@@ -33,7 +33,7 @@ if( $_GET["page"] == "APT-Prices" ) {
 
   }
 
-  header("Location: http://wordpress/wp-admin/admin.php?page=APT-Prices");
+  header("Location: /wp-admin/admin.php?page=APT-Prices");
 
 
 }
@@ -67,7 +67,7 @@ if( $_GET["page"] == "APT-Tables" ) {
 
   }
 
-  header("Location: http://wordpress/wp-admin/admin.php?page=APT-Tables&acton=Prices");
+  header("Location: /wp-admin/admin.php?page=APT-Tables&acton=Prices");
 
 
 
