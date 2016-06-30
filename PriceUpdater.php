@@ -2,8 +2,8 @@
 require_once "Crawler.php";
 global $wpdb;
 
-#header("Content-Type: text/plain");
-#echo "Price Update er kaldt\n";
+header("Content-Type: text/plain");
+echo "Price Update er kaldt\n";
 
 
 // Hvis der bliver kaldt fra en pris listen

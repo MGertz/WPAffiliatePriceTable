@@ -4,6 +4,9 @@
 
 function AP_Crawler($url=false,$CrawlFrom=false,$CrawlTo=false) {
 
+	echo "------------------------------ CRAWLER STARTED ------------------------------\n";
+	echo "URL: ".$url."\n";
+
 	// Tjek om tags der fra crawles fra er sat
 	if( $CrawlFrom==false ) {
 		return "ERROR: Missing crawl_from informations";
@@ -36,7 +39,7 @@ function AP_Crawler($url=false,$CrawlFrom=false,$CrawlTo=false) {
 
 	$html = curl_exec($ch);
 
-	#echo "Original From: ".$CrawlFrom." - To: ".$CrawlTo."\n\n";
+	echo "Original From: ".$CrawlFrom." - To: ".$CrawlTo."\n";
 
 	// Forbred crawlfrom og CrawlTo til at bruges i preg
 	$CrawlFrom = preg_quote($CrawlFrom);
@@ -46,31 +49,32 @@ function AP_Crawler($url=false,$CrawlFrom=false,$CrawlTo=false) {
 	$CrawlFrom = str_replace("'","\'",$CrawlFrom);
 	$CrawlTo = str_replace("'","\'",$CrawlTo);
 
-	#echo "After From: ".$CrawlFrom." - To: ".$CrawlTo."\n\n";
+	echo "After From: ".$CrawlFrom." - To: ".$CrawlTo."\n";
 
 	// Pattern der bruges når der hentes info
 	$pattern = "'".$CrawlFrom."(.*?)".$CrawlTo."'si";
 
-	#echo "Pattern: ".$pattern."\n";
-
 	// Grep prisen fra outputtet
 	preg_match($pattern,$html,$match);
 
-	#print_r($match);
+	print_r($match);
 	#exit;
 
 	// Hent det første resultat ud i en variabel
 	$price = $match[0];
+	echo "Price: ".$price."\n";
 
 	// Fjern alle html tags
 	$price = strip_tags($price);
+	echo "Price tags removed: ".$price."\n";
 
 	// Trim sætningen så der ingen spaces er i start og slut
 	$price = trim($price);
-
+	echo "Price trim: ".$price."\n";
 
 	// Fjern alt undtagen tal, komme og punktum
 	$price = preg_replace("/[^0-9\.\,]+/","",$price);
+	echo "Price only digits: ".$price."\n";
 
 	// Ret decimal tæller til bindestreg, hvis der ingen decimal splitter er, indsæt da -00
 	if( substr($price,-3,1) == "," OR substr($price,-3,1) == "." ) {
@@ -84,6 +88,9 @@ function AP_Crawler($url=false,$CrawlFrom=false,$CrawlTo=false) {
 
 	// ret decimal skiller til punktum hvilket er det som bruges i SQL
 	$price = str_replace("-",".",$price);
+	echo "END Price: ".$price."\n";
+
+	echo "------------------------------ CRAWLER ENDED ------------------------------\n\n\n";
 
   // Send tallet retur
   return $price;

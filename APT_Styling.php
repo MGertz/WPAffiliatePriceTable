@@ -20,9 +20,6 @@ $css = file_get_contents(plugin_dir_path( __FILE__ )."css/style.css");
 
 
 
-asd
-
-
 </div>
 
 
