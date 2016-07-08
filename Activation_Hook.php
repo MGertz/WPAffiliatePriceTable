@@ -37,8 +37,10 @@ function AP_Activation_Hook() {
 		program_id int(10) UNSIGNED NOT NULL,
 		shipping varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 		currency varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-		crawl_from varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-		crawl_to varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+		crawl_from1 varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+		crawl_to1 varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+		crawl_from2 varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+		crawl_to2 varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 		PRIMARY KEY (`id`)
 	) CHARACTER SET utf8 COLLATE utf8_general_ci;";
     dbDelta($sql);
