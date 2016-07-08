@@ -14,14 +14,18 @@ foreach( $result as $row ) {
 	$ProgramID = $row->program_id;
 	$Shipping = $row->shipping;
 	$Currency = $row->currency;
-	$CrawlFrom = $row->crawl_from;
-	$CrawlFrom = str_replace('"',"&quot;",$CrawlFrom);
-    $CrawlFrom = stripSlashes($CrawlFrom);
-
-
-	$CrawlTo = $row->crawl_to;
-	$CrawlTo = str_replace("\"","&quot;",$CrawlTo);
-    $CrawlTo = stripSlashes($CrawlTo);
+	$CrawlFrom1 = $row->crawl_from1;
+	$CrawlFrom1 = str_replace('"',"&quot;",$CrawlFrom1);
+    $CrawlFrom1 = stripSlashes($CrawlFrom1);
+	$CrawlTo1 = $row->crawl_to1;
+	$CrawlTo1 = str_replace("\"","&quot;",$CrawlTo1);
+    $CrawlTo1 = stripSlashes($CrawlTo1);
+	$CrawlFrom2 = $row->crawl_from2;
+	$CrawlFrom2 = str_replace('"',"&quot;",$CrawlFrom2);
+    $CrawlFrom2 = stripSlashes($CrawlFrom2);
+	$CrawlTo2 = $row->crawl_to2;
+	$CrawlTo2 = str_replace("\"","&quot;",$CrawlTo2);
+    $CrawlTo2 = stripSlashes($CrawlTo2);
 }
 
 
@@ -101,22 +105,45 @@ foreach( $result as $row ) {
 						<input name="Currency" type="text" id="Currency" value="<? echo $Currency; ?>" aria-required="true" style="width: 350px;">
 					</td>
 				</tr>
+
+
+
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="CrawlFrom">Crawl From <span class="description">(required)</span></label>
+						<label for="CrawlFrom">Crawl From Default <span class="description">(required)</span></label>
 					</th>
 					<td>
-						<input name="CrawlFrom" type="text" id="CrawlFrom" value="<? echo $CrawlFrom; ?>" aria-required="true" style="width: 350px;">
+						<input name="CrawlFrom1" type="text" id="CrawlFrom1" value="<? echo $CrawlFrom1; ?>" aria-required="true" style="width: 350px;">
 					</td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="CrawlTo">Crawl To <span class="description">(required)</span></label>
+						<label for="CrawlTo">Crawl To Default <span class="description">(required)</span></label>
 					</th>
 					<td>
-						<input name="CrawlTo" type="text" id="CrawlTo" value="<? echo $CrawlTo; ?>" aria-required="true" style="width: 350px;">
+						<input name="CrawlTo1" type="text" id="CrawlTo1" value="<? echo $CrawlTo1; ?>" aria-required="true" style="width: 350px;">
 					</td>
 				</tr>
+				<tr class="form-field form-required">
+					<th scope="row">
+						<label for="CrawlFrom">Crawl From Alternative<span class="description">(required)</span></label>
+					</th>
+					<td>
+						<input name="CrawlFrom2" type="text" id="CrawlFrom2" value="<? echo $CrawlFrom2; ?>" aria-required="true" style="width: 350px;">
+					</td>
+				</tr>
+				<tr class="form-field form-required">
+					<th scope="row">
+						<label for="CrawlTo">Crawl To Alternative<span class="description">(required)</span></label>
+					</th>
+					<td>
+						<input name="CrawlTo2" type="text" id="CrawlTo2" value="<? echo $CrawlTo2; ?>" aria-required="true" style="width: 350px;">
+					</td>
+				</tr>
+
+
+
+
 			</tbody>
 		</table>
 

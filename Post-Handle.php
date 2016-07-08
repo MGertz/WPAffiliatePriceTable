@@ -14,8 +14,10 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
             'program_id' => $_POST["ProgramID"],
             'shipping' => $_POST["Shipping"],
             'currency' => $_POST["Currency"],
-            'crawl_from' => $_POST["CrawlFrom"],
-            'crawl_to' => $_POST["CrawlTo"]
+            'crawl_from1' => $_POST["CrawlFrom1"],
+            'crawl_to1' => $_POST["CrawlTo1"],
+            'crawl_from2' => $_POST["CrawlFrom2"],
+            'crawl_to2' => $_POST["CrawlTo2"]
         );
 
         $wpdb->insert($table,$insert);
@@ -65,8 +67,11 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
     		'shipping' => $_POST["Shipping"],
     		'currency' => $_POST["Currency"],
 
-    		'crawl_from' => str_replace("&quot;","\"",$_POST["CrawlFrom"]),
-    		'crawl_to' => str_replace("&quot;","\"",$_POST["CrawlTo"])
+    		'crawl_from1' => str_replace("&quot;","\"",$_POST["CrawlFrom1"]),
+    		'crawl_to1' => str_replace("&quot;","\"",$_POST["CrawlTo1"]),
+
+            'crawl_from2' => str_replace("&quot;","\"",$_POST["CrawlFrom2"]),
+            'crawl_to2' => str_replace("&quot;","\"",$_POST["CrawlTo2"])
         );
 
         $wpdb->update($table,$update,$where);

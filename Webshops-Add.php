@@ -72,22 +72,46 @@ global $wpdb;
 						<input name="Currency" type="text" id="Currency" value="<? echo $Currency; ?>" aria-required="true" style="width: 350px;">
 					</td>
 				</tr>
+
+
+
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="CrawlFrom">Crawl From <span class="description">(required)</span></label>
+						<label for="CrawlFrom1">Crawl From Default<span class="description">(required)</span></label>
 					</th>
 					<td>
-						<input name="CrawlFrom" type="text" id="CrawlFrom" value="<? echo $CrawlFrom; ?>" aria-required="true" style="width: 350px;">
+						<input name="CrawlFrom1" type="text" id="CrawlFrom1" value="<? echo $CrawlFrom1; ?>" aria-required="true" style="width: 350px;">
 					</td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row">
-						<label for="CrawlTo">Crawl To <span class="description">(required)</span></label>
+						<label for="CrawlTo1">Crawl To Default<span class="description">(required)</span></label>
 					</th>
 					<td>
-						<input name="CrawlTo" type="text" id="CrawlTo" value="<? echo $CrawlTo; ?>" aria-required="true" style="width: 350px;">
+						<input name="CrawlTo1" type="text" id="CrawlTo1" value="<? echo $CrawlTo1; ?>" aria-required="true" style="width: 350px;">
 					</td>
 				</tr>
+
+
+				<tr class="form-field form-required">
+					<th scope="row">
+						<label for="CrawlFrom2">Crawl From Alternative<span class="description">(required)</span></label>
+					</th>
+					<td>
+						<input name="CrawlFrom2" type="text" id="CrawlFrom2" value="<? echo $CrawlFrom2; ?>" aria-required="true" style="width: 350px;">
+					</td>
+				</tr>
+				<tr class="form-field form-required">
+					<th scope="row">
+						<label for="CrawlTo2">Crawl To Alternative<span class="description">(required)</span></label>
+					</th>
+					<td>
+						<input name="CrawlTo2" type="text" id="CrawlTo2" value="<? echo $CrawlTo2; ?>" aria-required="true" style="width: 350px;">
+					</td>
+				</tr>
+
+
+
 			</tbody>
 		</table>
 
