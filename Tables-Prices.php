@@ -100,7 +100,7 @@ foreach( $result as $row ) {
 							#echo "></td>";
 
 
-							echo "<td>".$row->shop_name."</td>";
+							echo "<td><a href='http://".$row->site_url."' target='_blank'>".$row->shop_name."</a></td>";
 							echo "<td>".$affiliates[$row->affiliate_id]."</td>";
 							echo "<td><input type='text' name='ShopList[".$ShopLine."][ProductUrl]' value='".$ProductUrl."' style='width: 100%;'></td>";
 							echo "<td><input type='text' name='ShopList[".$ShopLine."][Price]' value='".$Price."' style='width: 100%;'></td>";
