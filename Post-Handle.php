@@ -81,6 +81,8 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 	}
 
     if( $_POST["AP_Form_Post"] == "FormTablesPrices" ) {
+
+        echo "Form posted<br>";
         $table = $wpdb->prefix."apt_prices";
 
         $TableID = $_POST["ID"];
@@ -89,9 +91,9 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
         foreach( $ShopList as $row ) {
 
-            echo "<pre>";
-						print_r($row);
-						echo "</pre>";
+            #echo "<pre>";
+			#print_r($row);
+			#echo "</pre>";
 
 
             if( $row["ProductUrl"] != "" ) {
@@ -104,8 +106,10 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
                 $sql2 = "SELECT * FROM `".$wpdb->prefix."apt_webshops` WHERE `id` = '".$row["WebshopID"]."';";
                 $result2 = $wpdb->get_results($sql2);
                 foreach( $result2 as $row2 ) {
-                    $crawl_from = stripslashes($row2->crawl_from);
-                    $crawl_to = stripslashes($row2->crawl_to);
+                    $crawl_from1 = stripslashes($row2->crawl_from1);
+                    $crawl_to1 = stripslashes($row2->crawl_to1);
+                    $crawl_from2 = stripslashes($row2->crawl_from2);
+                    $crawl_to2 = stripslashes($row2->crawl_to2);
                 }
 
 
@@ -125,7 +129,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
                     // Tjek om prisen er sat, hvis ikke hent den.
                     if( empty( $row["Price"] ) ) {
-                        $price = AP_Crawler( $row["ProductUrl"] , $crawl_from , $crawl_to );
+                        $price = AP_Crawler( $row["ProductUrl"] , $crawl_from1 , $crawl_to1, $crawl_from2 , $crawl_to2 );
                     } else {
                         $price = $row["Price"];
                     }
@@ -149,7 +153,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
                     // Tjek om prisen er sat, hvis ikke hent den.
                     if( empty( $row["Price"] ) ) {
-                        $price = AP_Crawler( $row["ProductUrl"] , $crawl_from , $crawl_to );
+                        $price = AP_Crawler( $row["ProductUrl"] , $crawl_from1 , $crawl_to1, $crawl_from2 , $crawl_to2 );
                     } else {
                         $price = $row["Price"];
                     }
@@ -185,7 +189,6 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" AND isset( $_POST["AP_Form_Post"] ) ) {
 
 
         header("Location: ?page=APT-Tables&acton=Prices");
-        exit;
     }
 
 	if( $_POST["AP_Form_Post"] == "FormAffiliateAdd" ) {
